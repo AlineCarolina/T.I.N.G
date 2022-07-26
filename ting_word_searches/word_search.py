@@ -1,10 +1,13 @@
-def exists_word(word, instance):
+def get_words(word, instance, boolean):
     result_list = []
     occurrences = []
 
     for index, line in enumerate(instance._data[0]['linhas_do_arquivo']):
         if word.lower() in line.lower():
-            occurrences.append({"linha": index + 1})
+            if boolean is True:
+                occurrences.append({'linha': index + 1, 'conteudo': line})
+            else:
+                occurrences.append({'linha': index + 1})
 
     if len(occurrences) > 0:
         result_list.append({
@@ -16,5 +19,9 @@ def exists_word(word, instance):
     return result_list
 
 
+def exists_word(word, instance):
+    return get_words(word, instance, False)
+
+
 def search_by_word(word, instance):
-    """Aqui irá sua implementação"""
+    return get_words(word, instance, True)
