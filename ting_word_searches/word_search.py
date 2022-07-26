@@ -11,9 +11,9 @@ def get_words(word, instance, boolean):
 
     if len(occurrences) > 0:
         result_list.append({
-            "palavra": word,
-            "arquivo": instance._data[0]["nome_do_arquivo"],
-            "ocorrencias": occurrences,
+            'palavra': word,
+            'arquivo': instance._data[0]['nome_do_arquivo'],
+            'ocorrencias': occurrences,
         })
 
     return result_list
