@@ -12,11 +12,15 @@ def process(path_file, instance):
         'linhas_do_arquivo':  txt_importer(path_file)
     }
     instance.enqueue(result)
-    sys.stdout.write(str(result))
+    print(str(result))
 
 
 def remove(instance):
-    """Aqui irá sua implementação"""
+    if not len(instance):
+        sys.stdout.write('Não há elementos\n')
+    else:
+        file = instance.dequeue()['nome_do_arquivo']
+        print(f'Arquivo {file} removido com sucesso\n')
 
 
 def file_metadata(instance, position):
